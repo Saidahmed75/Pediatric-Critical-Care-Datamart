@@ -1,0 +1,8 @@
+ccudm_procedure_orders,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+ORDER_ID,"decimal(18,0)",null
+PROCEDURES,string,null
+PRIORITIZED_TIME_TYPE,string,null
+PRIORITIZED_TIME,timestamp,null

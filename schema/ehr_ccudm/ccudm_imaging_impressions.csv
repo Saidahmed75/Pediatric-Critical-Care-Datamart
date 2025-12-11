@@ -1,0 +1,9 @@
+ccudm_imaging_impressions,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+IMAGE_ORDER_ID,"decimal(18,0)",null
+IMAGE_TAKEN_DTTM,timestamp,null
+LAB_PROCEDURE,string,null
+IMPRESSION_LINE,int,null
+IMPRESSION_TEXT,string,null

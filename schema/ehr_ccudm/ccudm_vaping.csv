@@ -1,0 +1,11 @@
+ccudm_vaping,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+HLV_ID,"decimal(18,0)",null
+ELEMENT_ID,string,null
+CONCEPT_NAME,string,null
+CONCEPT_ABREV,string,null
+LINE,int,null
+SMRTDTA_ELEM_VALUE,string,null
+VAPE_START_DATE,timestamp,null
+VAPE_QUIT_DATE,timestamp,null

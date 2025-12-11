@@ -1,0 +1,11 @@
+ccudm_dialysis_history,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+DIALYSIS_CENTER,string,null
+DIALYSIS_DEPARTMENT,string,null
+DIALYSIS_START_DATE,timestamp,null
+DIALYSIS_END_DATE,timestamp,null
+DIALYSIS_COMMENTS,string,null
+EPISODE_ID,"decimal(18,0)",null
+HX_CSN_ID,"decimal(18,0)",null
+HX_LINE,int,null

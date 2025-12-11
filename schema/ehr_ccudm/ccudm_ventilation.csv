@@ -1,0 +1,12 @@
+ccudm_ventilation,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+INPATIENT_DATA_ID,string,null
+VENT_START_DTTM,timestamp,null
+VENT_END_DTTM,timestamp,null
+ASSUMED_VENT_START_DTTM,timestamp,null
+ASSUMED_VENT_END_DTTM,timestamp,null
+START_FLO_MEAS_ID,string,null
+END_FLO_MEAS_ID,string,null
+VENT_START_FSD_ID,string,null
+VENT_START_FSD_LINE,int,null

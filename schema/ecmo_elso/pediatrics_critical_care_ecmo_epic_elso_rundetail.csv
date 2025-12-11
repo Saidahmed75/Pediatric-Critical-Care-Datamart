@@ -1,0 +1,16 @@
+pediatrics_critical_care_ecmo_epic_elso_rundetail,,
+col_name,data_type,comment
+patientid,string,null
+runid,string,null
+runno,int,null
+rundetailid,string,null
+hoursrundetail,int,null
+starttime,timestamp,null
+endtime,timestamp,null
+centerno,int,null
+abbreviation,string,null
+description,string,null
+createdbyuser,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+input_file,string,null

@@ -1,0 +1,11 @@
+ccudm_vaccinations,,
+col_name,data_type,comment
+IMMUNE_ID,"decimal(18,0)",null
+PAT_MRN_ID,string,null
+STATUS,string,null
+IMMUNE_DATE,timestamp,null
+VACCINE,string,null
+CSN,"decimal(10,0)",null
+EXTERNAL_ADMIN,string,null
+DEFER_REASON,string,null
+DOSE,string,null

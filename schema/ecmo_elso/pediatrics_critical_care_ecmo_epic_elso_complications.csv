@@ -1,0 +1,13 @@
+pediatrics_critical_care_ecmo_epic_elso_complications,,
+col_name,data_type,comment
+complicpk,string,null
+patientid,string,null
+runid,string,null
+runno,int,null
+code,int,null
+description,string,null
+estimated,string,null
+time,timestamp,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+input_file,string,null

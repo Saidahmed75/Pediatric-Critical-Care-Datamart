@@ -1,0 +1,12 @@
+ccudm_comorbidities,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(18,0)",null
+DIAGNOSIS_SOURCE,string,null
+RECORDED_DATE,timestamp,null
+ICD_CODES,string,null
+DIAGNOSIS,string,null
+dx_id,"decimal(18,0)",null
+LINE,int,null
+CODE_TYPE,string,null
+PROBLEM_LIST_ID,"decimal(10,0)",null

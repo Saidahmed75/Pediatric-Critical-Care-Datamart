@@ -1,0 +1,11 @@
+ccudm_isolation,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+ISO_ORDER_ID,"decimal(18,0)",null
+ISOLATION_TYPE,string,null
+ISOLATION_INSTANCE,"decimal(18,0)",null
+ISO_ADDED_TIME,timestamp,null
+ISO_RMVD_TIME,timestamp,null
+ISO_CMNT,string,null
+LINE,"decimal(18,0)",null

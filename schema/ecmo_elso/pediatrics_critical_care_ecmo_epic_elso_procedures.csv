@@ -1,0 +1,14 @@
+pediatrics_critical_care_ecmo_epic_elso_procedures,,
+col_name,data_type,comment
+procedurepk,string,null
+patientid,string,null
+runid,string,null
+runno,int,null
+cptcode,int,null
+cptdescription,string,null
+dateestimated,string,null
+date,timestamp,null
+proceduretiming,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+input_file,string,null

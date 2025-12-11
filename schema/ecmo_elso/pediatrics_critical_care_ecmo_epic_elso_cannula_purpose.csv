@@ -1,0 +1,15 @@
+pediatrics_critical_care_ecmo_epic_elso_cannula_purpose,,
+col_name,data_type,comment
+canpurid,string,null
+patientid,string,null
+runid,string,null
+runno,int,null
+cannulationid,string,null
+starttime,timestamp,null
+endtime,timestamp,null
+purposereason,int,null
+replacedbypid,string,null
+replacedpid,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+input_file,string,null

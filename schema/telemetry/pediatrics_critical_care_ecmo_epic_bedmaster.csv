@@ -1,0 +1,17 @@
+pediatrics_critical_care_ecmo_epic_bedmaster,,
+col_name,data_type,comment
+mrn,"decimal(38,18)",null
+name,string,null
+source,string,null
+feature,string,null
+time,timestamp,null
+value,string,null
+unit,string,null
+run_id,string,null
+header1,string,null
+header2,string,null
+header3,string,null
+header4,string,null
+pk,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null

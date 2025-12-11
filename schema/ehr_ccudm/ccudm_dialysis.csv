@@ -1,0 +1,10 @@
+ccudm_dialysis,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+DIAL_ORDER_ID,"decimal(18,0)",null
+MED_PT_TYPE,string,null
+ORDER_STATUS,string,null
+LAB_PROCEDURE,string,null
+COMMENT_LINE,int,null
+NARRATIVE,string,null

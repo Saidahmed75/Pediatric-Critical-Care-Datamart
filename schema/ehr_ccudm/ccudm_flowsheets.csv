@@ -1,0 +1,11 @@
+ccudm_flowsheets,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+INPATIENT_DATA_ID,string,null
+PERFORMED,timestamp,null
+FLOWSHEET_NAME,string,null
+MEASURE_NAME,string,null
+VALUE,string,null
+LINE,int,null
+FLO_MEAS_ID,string,null
+FSD_ID,string,null

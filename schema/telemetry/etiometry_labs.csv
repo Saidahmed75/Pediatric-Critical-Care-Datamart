@@ -1,0 +1,15 @@
+etiometry_labs,,
+col_name,data_type,comment
+mrn,bigint,null
+lab_name,string,null
+performed,timestamp,null
+charted,timestamp,null
+val,double,null
+ref_low,double,null
+ref_high,string,null
+units,string,null
+admin_site,string,null
+run_id,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+filename,string,null

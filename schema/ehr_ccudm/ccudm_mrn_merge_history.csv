@@ -1,0 +1,4 @@
+ccudm_mrn_merge_history,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+MERGED_PAT_MRN,string,null

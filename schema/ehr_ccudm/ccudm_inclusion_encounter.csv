@@ -1,0 +1,11 @@
+ccudm_inclusion_encounter,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+HOSPITAL_ADMIT_DTTM,timestamp,null
+HOSPITAL_DISCHARGE_DTTM,timestamp,null
+EVENT_TYPE,string,null
+DEPARTMENT,string,null
+EVENT_EFFECTIVE_TIME,timestamp,null
+PAT_CLASS,string,null
+PAT_SERVICE,string,null

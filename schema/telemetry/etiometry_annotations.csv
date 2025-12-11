@@ -1,0 +1,11 @@
+etiometry_annotations,,
+col_name,data_type,comment
+event_at,timestamp,null
+created_at,timestamp,null
+event_type,string,null
+initiative,string,null
+description,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+filename,string,null
+mrn,string,null

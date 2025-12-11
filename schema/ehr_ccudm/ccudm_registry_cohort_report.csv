@@ -1,0 +1,13 @@
+ccudm_registry_cohort_report,,
+col_name,data_type,comment
+no_match_date,date,null
+id,string,null
+last_name,string,null
+first_name,string,null
+pat_mrn_id,bigint,null
+adm_date,timestamp,null
+discharge_date,string,null
+registry,string,null
+dl_load_dt,date,null
+dl_load_ts,timestamp,null
+input_file,string,null

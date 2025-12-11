@@ -1,0 +1,8 @@
+ccudm_home_medications,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+ADMISSION_MEDICATIONS,string,null
+MEDICATION_ID,"decimal(18,0)",null
+EVENT_ID,string,null
+LINE,int,null

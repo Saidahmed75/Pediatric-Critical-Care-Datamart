@@ -1,0 +1,13 @@
+ccudm_imaging,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+CSN,"decimal(10,0)",null
+IMAGE_ORDER_ID,"decimal(18,0)",null
+MED_PT_TYPE,string,null
+ORDER_STATUS,string,null
+IMAGE_TAKEN_DTTM,timestamp,null
+RSLT_DTTM,timestamp,null
+LAB_PROCEDURE,string,null
+COMMENT_LINE,int,null
+INTERESTING_COMMENT,string,null
+NARRATIVE,string,null

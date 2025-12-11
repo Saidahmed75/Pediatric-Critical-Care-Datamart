@@ -1,0 +1,8 @@
+ccudm_patient_inclusion_reason,,
+col_name,data_type,comment
+PAT_MRN_ID,string,null
+STATIC_COHORT_CRITERIA_MET,string,null
+AUTOMATED_COHORT_CRITERIA_MET,string,null
+AUTOMATED_COHORT_CRITERIA_MET_DATE,date,null
+ECMO_COHORT_CRITERIA_MET,string,null
+REGISTRY_COHORT_CRITERIA_MET,string,null
