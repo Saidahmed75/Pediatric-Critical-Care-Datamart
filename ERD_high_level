@@ -1,7 +1,3 @@
-# High-level Entity–Relationship Diagram
-
-This diagram shows the main entities and linkages across the EHR (ccudm), ECMO/ELSO registry, telemetry, and neuro outcomes domains.
-
 ```mermaid
 erDiagram
   PATIENT {
