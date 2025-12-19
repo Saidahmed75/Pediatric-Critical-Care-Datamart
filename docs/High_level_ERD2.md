@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 erDiagram
   %% =========================
   %% High level / domain view
@@ -187,3 +187,4 @@ erDiagram
 
   %% Neuro outcomes linkage (MRN + optional PAT_ID)
   PATIENT ||--o{ NEURO_OUTCOMES : "PAT_MRN_ID = epicmrn"
+```
