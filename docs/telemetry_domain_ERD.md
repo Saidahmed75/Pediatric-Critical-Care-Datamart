@@ -1,5 +1,4 @@
 ```mermaid
-```mermaid
 erDiagram
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER {
