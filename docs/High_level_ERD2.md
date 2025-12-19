@@ -66,7 +66,7 @@ erDiagram
     string patientid
   }
 
-  ELSO_CANnULA {
+  ELSO_CANNULA {
     string cannulapk
     string runid
     int runno
@@ -106,7 +106,7 @@ erDiagram
   %% Telemetry domain (BedMaster + Etiometry)
   %% ---------
   BEDMASTER {
-    string pk
+    string bedmaster_row_id
     bigint mrn
     string run_id
     datetime time
@@ -152,15 +152,15 @@ erDiagram
   PATIENT ||--o{ CCUDM_DEMOGRAPHICS : "PAT_MRN_ID"
   PATIENT ||--o{ CCUDM_ENCOUNTERS   : "PAT_MRN_ID"
 
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_FLOWSHEETS                : "INPATIENT_DATA_ID"
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_LAB_RESULTS               : "CSN"
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ORDERS         : "CSN"
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_FLOWSHEETS        : "INPATIENT_DATA_ID"
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_LAB_RESULTS       : "CSN"
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ORDERS : "CSN"
   CCUDM_MEDICATION_ORDERS ||--o{ CCUDM_MEDICATION_ADMINISTRATION : "ORDER_ID"
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_VENTILATION               : "INPATIENT_DATA_ID"
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_VENTILATION       : "INPATIENT_DATA_ID"
 
   %% ECMO core to ECMO-ELSO
   ECMO_LOG ||--o{ ELSO_PATIENT_RUN   : "runid"
-  ECMO_LOG ||--o{ ELSO_CANnULA       : "runid"
+  ECMO_LOG ||--o{ ELSO_CANNULA       : "runid"
   ECMO_LOG ||--o{ ELSO_COMPLICATIONS : "runid"
   ECMO_LOG ||--o{ ELSO_DIAGNOSES     : "runid"
   ECMO_LOG ||--o{ ELSO_ORGANISMS     : "runid"
@@ -168,23 +168,22 @@ erDiagram
   ECMO_LOG ||--o{ ELSO_RUNDETAIL     : "runid"
 
   %% Cross-domain linkage via identifiers
-  ECMO_LOG }o--|| PATIENT        : "pat_mrn_id = PAT_MRN_ID"
+  ECMO_LOG }o--|| PATIENT         : "pat_mrn_id = PAT_MRN_ID"
   ECMO_LOG }o--|| CCUDM_ENCOUNTERS : "pat_enc_csn_id = CSN"
   ECMO_LOG }o--|| CCUDM_FLOWSHEETS : "inpatient_data_id = INPATIENT_DATA_ID"
 
   %% Patient to telemetry (MRN)
-  PATIENT ||--o{ BEDMASTER            : "PAT_MRN_ID = mrn"
-  PATIENT ||--o{ ETIOMETRY_T3_DATA    : "PAT_MRN_ID = mrn"
+  PATIENT ||--o{ BEDMASTER               : "PAT_MRN_ID = mrn"
+  PATIENT ||--o{ ETIOMETRY_T3_DATA       : "PAT_MRN_ID = mrn"
   PATIENT ||--o{ ETIOMETRY_COMPUTED_DATA : "PAT_MRN_ID = mrn"
-  PATIENT ||--o{ ETIOMETRY_LABS       : "PAT_MRN_ID = mrn"
-  PATIENT ||--o{ ETIOMETRY_ANNOTATIONS : "PAT_MRN_ID = mrn"
+  PATIENT ||--o{ ETIOMETRY_LABS          : "PAT_MRN_ID = mrn"
+  PATIENT ||--o{ ETIOMETRY_ANNOTATIONS   : "PAT_MRN_ID = mrn"
 
   %% Optional ECMO run linkage into telemetry via run_id (when present)
-  ELSO_PATIENT_RUN ||--o{ BEDMASTER              : "run_id"
-  ELSO_PATIENT_RUN ||--o{ ETIOMETRY_T3_DATA      : "run_id"
+  ELSO_PATIENT_RUN ||--o{ BEDMASTER               : "run_id"
+  ELSO_PATIENT_RUN ||--o{ ETIOMETRY_T3_DATA       : "run_id"
   ELSO_PATIENT_RUN ||--o{ ETIOMETRY_COMPUTED_DATA : "run_id"
-  ELSO_PATIENT_RUN ||--o{ ETIOMETRY_LABS         : "run_id"
+  ELSO_PATIENT_RUN ||--o{ ETIOMETRY_LABS          : "run_id"
 
   %% Neuro outcomes linkage (MRN + optional PAT_ID)
   PATIENT ||--o{ NEURO_OUTCOMES : "PAT_MRN_ID = epicmrn"
-```
