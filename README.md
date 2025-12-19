@@ -101,6 +101,8 @@ If you use or reference this repository, please cite it as:
 
 A `CITATION.cff` file is provided to support automated citation via GitHub.
 
+https://github.com/Saidahmed75/Pediatric-Critical-Care-Datamart.git
+
 ---
 
 ## License
