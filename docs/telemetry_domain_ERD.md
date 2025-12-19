@@ -2,63 +2,63 @@
 erDiagram
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER {
-    string pk
-    int mrn
-    string run_id
-    string time
-    string name
-    string source
-    string feature
-    string value
-    string unit
-    string dl_load_dt
-    string dl_load_ts
+    pk string
+    mrn int
+    run_id string
+    time string
+    name string
+    source string
+    feature string
+    value string
+    unit string
+    dl_load_dt string
+    dl_load_ts string
   }
 
   ETIOMETRY_ANNOTATIONS {
-    int mrn
-    string event_at
-    string created_at
-    string event_type
-    string initiative
-    string description
-    string filename
-    string dl_load_dt
-    string dl_load_ts
+    mrn int
+    event_at string
+    created_at string
+    event_type string
+    initiative string
+    description string
+    filename string
+    dl_load_dt string
+    dl_load_ts string
   }
 
   ETIOMETRY_COMPUTED_DATA {
-    int mrn
-    string run_id
-    string timestamp
-    string dl_load_dt
-    string dl_load_ts
-    string filename
+    mrn int
+    run_id string
+    timestamp string
+    dl_load_dt string
+    dl_load_ts string
+    filename string
   }
 
   ETIOMETRY_LABS {
-    int mrn
-    string lab_name
-    string performed
-    string charted
-    float val
-    float ref_low
-    string ref_high
-    string units
-    string admin_site
-    string run_id
-    string dl_load_dt
-    string dl_load_ts
-    string filename
+    mrn int
+    lab_name string
+    performed string
+    charted string
+    val float
+    ref_low float
+    ref_high string
+    units string
+    admin_site string
+    run_id string
+    dl_load_dt string
+    dl_load_ts string
+    filename string
   }
 
   ETIOMETRY_T3_DATA {
-    int mrn
-    string run_id
-    string timestamp
-    string dl_load_dt
-    string dl_load_ts
-    string filename
+    mrn int
+    run_id string
+    timestamp string
+    dl_load_dt string
+    dl_load_ts string
+    filename string
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER ||--o{ ETIOMETRY_T3_DATA : "mrn"
