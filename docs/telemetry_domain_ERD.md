@@ -1,67 +1,71 @@
 ```mermaid
 erDiagram
+  PATIENT {
+    string pat_mrn_id PK
+  }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER {
-    pk string
-    mrn int
-    run_id string
-    time string
-    name string
-    source string
-    feature string
-    value string
-    unit string
-    dl_load_dt string
-    dl_load_ts string
+    string pk PK
+    string mrn FK
+    string run_id
+    timestamp time
+    string name
+    string source
+    string feature
+    string value
+    string unit
+    date dl_load_dt
+    timestamp dl_load_ts
   }
 
   ETIOMETRY_ANNOTATIONS {
-    mrn int
-    event_at string
-    created_at string
-    event_type string
-    initiative string
-    description string
-    filename string
-    dl_load_dt string
-    dl_load_ts string
+    string mrn FK
+    timestamp event_at
+    timestamp created_at
+    string event_type
+    string initiative
+    string description
+    string filename
+    date dl_load_dt
+    timestamp dl_load_ts
   }
 
   ETIOMETRY_COMPUTED_DATA {
-    mrn int
-    run_id string
-    timestamp string
-    dl_load_dt string
-    dl_load_ts string
-    filename string
+    string mrn FK
+    string run_id
+    timestamp timestamp
+    date dl_load_dt
+    timestamp dl_load_ts
+    string filename
   }
 
   ETIOMETRY_LABS {
-    mrn int
-    lab_name string
-    performed string
-    charted string
-    val float
-    ref_low float
-    ref_high string
-    units string
-    admin_site string
-    run_id string
-    dl_load_dt string
-    dl_load_ts string
-    filename string
+    string mrn FK
+    string run_id
+    string lab_name
+    timestamp performed
+    timestamp charted
+    double val
+    double ref_low
+    string ref_high
+    string units
+    string admin_site
+    date dl_load_dt
+    timestamp dl_load_ts
+    string filename
   }
 
   ETIOMETRY_T3_DATA {
-    mrn int
-    run_id string
-    timestamp string
-    dl_load_dt string
-    dl_load_ts string
-    filename string
+    string mrn FK
+    string run_id
+    timestamp timestamp
+    date dl_load_dt
+    timestamp dl_load_ts
+    string filename
   }
 
-  PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER ||--o{ ETIOMETRY_T3_DATA : "mrn"
-  ETIOMETRY_T3_DATA ||--o{ ETIOMETRY_COMPUTED_DATA : "mrn, run_id"
-  ETIOMETRY_T3_DATA ||--o{ ETIOMETRY_LABS : "mrn, run_id"
-  ETIOMETRY_T3_DATA ||--o{ ETIOMETRY_ANNOTATIONS : "mrn"
+  PATIENT ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER : has
+  PATIENT ||--o{ ETIOMETRY_ANNOTATIONS : has
+  PATIENT ||--o{ ETIOMETRY_COMPUTED_DATA : has
+  PATIENT ||--o{ ETIOMETRY_LABS : has
+  PATIENT ||--o{ ETIOMETRY_T3_DATA : has
