@@ -5,323 +5,335 @@ erDiagram
   %% ECMO core
   %% =========================
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG {
-    string runid PK
-    string pat_mrn_id FK
+    string runid_pk
+    string pat_mrn_id
     string pat_enc_csn_id
     string inpatient_data_id
-    timestamp date_on_ecmo
+    datetime date_on_ecmo
     string date_off_ecmo
     string mode
     string unit
   }
 
   %% =========================
-  %% ECMO-ELSO tables (keyed to ECMO_LOG via runid)
+  %% ECMO-ELSO tables (linked to ECMO_LOG by runid)
   %% =========================
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PATIENT_RUN {
-    string runid FK
+    string runid
     int runno
     string patientid
   }
 
-  PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANnULA {
-    string cannulapk PK
-    string runid FK
+  PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANNULA {
+    string cannulapk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANNULA_PURPOSE {
-    string canpurid PK
-    string runid FK
+    string canpurid_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CARDDX {
-    string carddxpk PK
-    string runid FK
+    string carddxpk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_COMPLICATIONS {
-    string complicpk PK
-    string runid FK
+    string complicpk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_DIAGNOSES {
-    string diagnosespk PK
-    string runid FK
+    string diagnosespk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_EQUIPMENT {
-    string equippk PK
-    string runid FK
+    string equippk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_MEMBLUNG {
-    string membpk PK
-    string runid FK
+    string membpk_pk
+    string runid
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_ORGANISMS {
-    string orgpk PK
-    string runid FK
+    string orgpk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PRE_SUPPORT {
-    string prsupppk PK
-    string runid FK
+    string prsupppk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PROCEDURES {
-    string procedurepk PK
-    string runid FK
+    string procedurepk_pk
+    string runid
     int runno
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PUMP {
-    string pumppk PK
-    string runid FK
+    string pumppk_pk
+    string runid
   }
 
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_RUNDETAIL {
-    string rundetailid PK
-    string runid FK
+    string rundetailid_pk
+    string runid
     int runno
+    datetime starttime
+    datetime endtime
   }
 
   %% =========================
-  %% EHR CCUDM (linked to ECMO_LOG by pat_mrn_id)
-  %% Note: composite PKs implied; using key columns only
+  %% EHR CCUDM (linked by PAT_MRN_ID)
   %% =========================
   CCUDM_DEMOGRAPHICS {
-    string PAT_MRN_ID PK
+    string pat_mrn_id_pk
   }
 
   CCUDM_ENCOUNTERS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    string INPATIENT_DATA_ID
+    string pat_mrn_id
+    decimal csn
+    string inpatient_data_id
+    datetime admit_time
+    datetime discharge_time
   }
 
   CCUDM_ADT {
-    string PAT_MRN_ID FK
-    decimal CSN
-    timestamp EFFECTIVE_TIME
+    string pat_mrn_id
+    decimal csn
+    datetime effective_time
   }
 
   CCUDM_COMORBIDITIES {
-    string PAT_MRN_ID FK
-    decimal CSN
+    string pat_mrn_id
+    decimal csn
     decimal dx_id
-    int LINE
+    int line
   }
 
   CCUDM_DIALYSIS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal DIAL_ORDER_ID
-    int COMMENT_LINE
+    string pat_mrn_id
+    decimal csn
+    decimal dial_order_id
+    int comment_line
   }
 
   CCUDM_DIALYSIS_HISTORY {
-    string PAT_MRN_ID FK
-    decimal EPISODE_ID
-    decimal HX_CSN_ID
-    int HX_LINE
+    string pat_mrn_id
+    decimal episode_id
+    decimal hx_csn_id
+    int hx_line
   }
 
   CCUDM_ECG {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal ECG_ORDER_ID
-    timestamp ECG_DTTM
+    string pat_mrn_id
+    decimal csn
+    decimal ecg_order_id
+    datetime ecg_dttm
   }
 
   CCUDM_ECMO_COHORT_REPORT {
-    string runid FK
-    string pat_mrn_id FK
+    string runid
+    string pat_mrn_id
   }
 
   CCUDM_FLOWSHEETS {
-    string PAT_MRN_ID FK
-    string INPATIENT_DATA_ID FK
-    timestamp PERFORMED
-    int LINE
-    string FSD_ID
+    string pat_mrn_id
+    string inpatient_data_id
+    datetime performed
+    int line
+    string fsd_id
   }
 
   CCUDM_HOME_MEDICATIONS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal MEDICATION_ID
-    int LINE
+    string pat_mrn_id
+    decimal csn
+    decimal medication_id
+    int line
   }
 
   CCUDM_IMAGING {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal IMAGE_ORDER_ID
-    timestamp IMAGE_TAKEN_DTTM
+    string pat_mrn_id
+    decimal csn
+    decimal image_order_id
+    datetime image_taken_dttm
   }
 
   CCUDM_IMAGING_IMPRESSIONS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal IMAGE_ORDER_ID
-    int IMPRESSION_LINE
+    string pat_mrn_id
+    decimal csn
+    decimal image_order_id
+    int impression_line
   }
 
   CCUDM_INCLUSION_ENCOUNTER {
-    string PAT_MRN_ID FK
-    decimal CSN
-    timestamp HOSPITAL_ADMIT_DTTM
+    string pat_mrn_id
+    decimal csn
+    datetime hospital_admit_dttm
+    datetime hospital_discharge_dttm
   }
 
   CCUDM_ISOLATION {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal ISO_ORDER_ID
-    decimal LINE
+    string pat_mrn_id
+    decimal csn
+    decimal iso_order_id
+    decimal line
   }
 
   CCUDM_LAB_RESULTS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal LAB_ORDER_ID
-    double FIRST_LAB_LINE_NO
-    int SECOND_LAB_LINE_NO
-    timestamp LAB_RSLT_COLLECTION_DTTM
+    string pat_mrn_id
+    decimal csn
+    decimal lab_order_id
+    double first_lab_line_no
+    int second_lab_line_no
+    datetime lab_rslt_collection_dttm
   }
 
   CCUDM_LAB_RESULTS_SUSCEPTIBILITY {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal LAB_ORDER_ID
-    double FIRST_LAB_LINE_NO
-    int SECOND_LAB_LINE_NO
-    int ANTIBIOTIC_LINE
+    string pat_mrn_id
+    decimal csn
+    decimal lab_order_id
+    double first_lab_line_no
+    int second_lab_line_no
+    int antibiotic_line
   }
 
   CCUDM_LDA {
-    string PAT_MRN_ID FK
-    decimal CSN
-    string IP_LDA_ID
-    timestamp PLACEMENT_INSTANT
+    string pat_mrn_id
+    decimal csn
+    string ip_lda_id
+    datetime placement_instant
+    datetime removal_instant
   }
 
   CCUDM_MEDICATION_ADMINISTRATION {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal ORDER_ID
-    int ORDER_LINE
-    timestamp MED_ADMIN_DOSE_START_DATE
+    string pat_mrn_id
+    decimal csn
+    decimal order_id
+    int order_line
+    datetime med_admin_dose_start_date
   }
 
   CCUDM_MEDICATION_ORDERS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal ORDER_ID
-    timestamp MED_ORDER_DATE
+    string pat_mrn_id
+    decimal csn
+    decimal order_id
+    datetime med_order_date
   }
 
   CCUDM_MRN_MERGE_HISTORY {
-    string PAT_MRN_ID FK
-    string MERGED_PAT_MRN
+    string pat_mrn_id
+    string merged_pat_mrn
   }
 
   CCUDM_PATIENT_INCLUSION_REASON {
-    string PAT_MRN_ID FK
+    string pat_mrn_id
   }
 
   CCUDM_PFT {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal PFT_ORDER_ID
-    timestamp LAB_RSLT_COLLECTION_DTTM
+    string pat_mrn_id
+    decimal csn
+    decimal pft_order_id
+    datetime lab_rslt_collection_dttm
   }
 
   CCUDM_PROCEDURE_ORDERS {
-    string PAT_MRN_ID FK
-    decimal CSN
-    decimal ORDER_ID
-    timestamp PRIORITIZED_TIME
+    string pat_mrn_id
+    decimal csn
+    decimal order_id
+    datetime prioritized_time
   }
 
   CCUDM_REGISTRY_COHORT_REPORT {
-    bigint pat_mrn_id FK
-    timestamp adm_date
+    bigint pat_mrn_id
+    datetime adm_date
   }
 
   CCUDM_VACCINATIONS {
-    decimal IMMUNE_ID
-    string PAT_MRN_ID FK
-    timestamp IMMUNE_DATE
-    decimal CSN
+    decimal immune_id
+    string pat_mrn_id
+    datetime immune_date
+    decimal csn
   }
 
   CCUDM_VAPING {
-    string PAT_MRN_ID FK
-    decimal HLV_ID
-    int LINE
+    string pat_mrn_id
+    decimal hlv_id
+    int line
   }
 
   CCUDM_VENTILATION {
-    string PAT_MRN_ID FK
-    string INPATIENT_DATA_ID FK
-    timestamp VENT_START_DTTM
+    string pat_mrn_id
+    string inpatient_data_id
+    datetime vent_start_dttm
+    datetime vent_end_dttm
   }
 
   %% =========================
   %% Neuro outcomes (linked by MRN)
   %% =========================
   NEURO_OUTCOMES {
-    string unique_id PK
-    bigint epicmrn FK
+    string unique_id_pk
+    bigint epicmrn
   }
 
   %% =========================
-  %% Etiometry and BedMaster telemetry (linked by MRN; optional run_id)
+  %% BedMaster + Etiometry telemetry (linked by MRN; optional run_id)
   %% =========================
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER {
-    string pk PK
-    string mrn FK
+    string pk_pk
+    bigint mrn
     string run_id
-    timestamp time
+    datetime time
+    string feature
+    string value
   }
 
   ETIOMETRY_ANNOTATIONS {
-    string mrn FK
-    timestamp event_at
+    string mrn
+    datetime event_at
+    datetime created_at
+    string event_type
   }
 
   ETIOMETRY_COMPUTED_DATA {
-    string mrn FK
+    bigint mrn
     string run_id
-    timestamp timestamp
+    datetime ts
   }
 
   ETIOMETRY_LABS {
-    string mrn FK
+    bigint mrn
     string run_id
-    timestamp performed
+    datetime performed
+    string lab_name
+    double val
   }
 
   ETIOMETRY_T3_DATA {
-    string mrn FK
+    bigint mrn
     string run_id
-    timestamp timestamp
+    datetime ts
   }
 
   %% =========================
   %% Relationships
   %% =========================
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PATIENT_RUN : runid
-  PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANnULA : runid
+  PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANNULA : runid
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CANNULA_PURPOSE : runid
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_CARDDX : runid
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_COMPLICATIONS : runid
@@ -334,36 +346,35 @@ erDiagram
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_PUMP : runid
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ELSO_RUNDETAIL : runid
 
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_ENCOUNTERS : PAT_MRN_ID
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_ADT : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_COMORBIDITIES : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_DIALYSIS : CSN
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_DIALYSIS_HISTORY : PAT_MRN_ID
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_ECG : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_HOME_MEDICATIONS : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_IMAGING : CSN
-  CCUDM_IMAGING ||--o{ CCUDM_IMAGING_IMPRESSIONS : IMAGE_ORDER_ID
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_INCLUSION_ENCOUNTER : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_ISOLATION : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_LAB_RESULTS : CSN
-  CCUDM_LAB_RESULTS ||--o{ CCUDM_LAB_RESULTS_SUSCEPTIBILITY : LAB_ORDER_ID
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_LDA : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ADMINISTRATION : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ORDERS : CSN
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_MRN_MERGE_HISTORY : PAT_MRN_ID
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_PATIENT_INCLUSION_REASON : PAT_MRN_ID
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_PFT : CSN
-  CCUDM_ENCOUNTERS ||--o{ CCUDM_PROCEDURE_ORDERS : CSN
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VACCINATIONS : PAT_MRN_ID
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VAPING : PAT_MRN_ID
-  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VENTILATION : PAT_MRN_ID
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_ENCOUNTERS : pat_mrn_id
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_ADT : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_COMORBIDITIES : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_DIALYSIS : csn
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_DIALYSIS_HISTORY : pat_mrn_id
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_ECG : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_HOME_MEDICATIONS : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_IMAGING : csn
+  CCUDM_IMAGING ||--o{ CCUDM_IMAGING_IMPRESSIONS : image_order_id
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_INCLUSION_ENCOUNTER : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_ISOLATION : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_LAB_RESULTS : csn
+  CCUDM_LAB_RESULTS ||--o{ CCUDM_LAB_RESULTS_SUSCEPTIBILITY : lab_order_id
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_LDA : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ADMINISTRATION : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_MEDICATION_ORDERS : csn
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_MRN_MERGE_HISTORY : pat_mrn_id
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_PATIENT_INCLUSION_REASON : pat_mrn_id
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_PFT : csn
+  CCUDM_ENCOUNTERS ||--o{ CCUDM_PROCEDURE_ORDERS : csn
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VACCINATIONS : pat_mrn_id
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VAPING : pat_mrn_id
+  CCUDM_DEMOGRAPHICS ||--o{ CCUDM_VENTILATION : pat_mrn_id
 
-  %% Linkage across domains by MRN
+  %% Cross-domain linkage by MRN (conceptual)
   PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_ECMO_LOG }o--|| CCUDM_DEMOGRAPHICS : pat_mrn_id
-  CCUDM_DEMOGRAPHICS ||--o{ NEURO_OUTCOMES : PAT_MRN_ID_to_epicmrn
-
-  CCUDM_DEMOGRAPHICS ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER : PAT_MRN_ID_to_mrn
-  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_ANNOTATIONS : PAT_MRN_ID_to_mrn
-  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_COMPUTED_DATA : PAT_MRN_ID_to_mrn
-  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_LABS : PAT_MRN_ID_to_mrn
-  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_T3_DATA : PAT_MRN_ID_to_mrn
+  CCUDM_DEMOGRAPHICS ||--o{ NEURO_OUTCOMES : mrn
+  CCUDM_DEMOGRAPHICS ||--o{ PEDIATRICS_CRITICAL_CARE_ECMO_EPIC_BEDMASTER : mrn
+  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_ANNOTATIONS : mrn
+  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_COMPUTED_DATA : mrn
+  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_LABS : mrn
+  CCUDM_DEMOGRAPHICS ||--o{ ETIOMETRY_T3_DATA : mrn
