@@ -1,100 +1,146 @@
 ```mermaid
 erDiagram
 
-  elso_patient_run {
-    string patientid
-    string runid
-    int runno
-  }
-
-  ecmo_log {
-    string runid
-    string pat_mrn_id
+  pediatrics_critical_care_ecmo_epic_ecmo_log {
+    string runid PK
+    int    year
+    string mode
+    string unit
+    int    pat_mrn_id
     string inpatient_data_id
-    string pat_enc_csn_id
+    timestamp date_on_ecmo
+    string discharge_disposition
   }
 
-  elso_cannula {
+  pediatrics_critical_care_ecmo_epic_elso_patient_run {
+    string runid PK
     string patientid
-    string runid
-    int runno
+    int    runno
+    int    ageyears
+    string sex
+    string supporttype
+    int    hoursecmo
   }
 
-  elso_cannula_purpose {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_cannula {
+    string cannulapk PK
+    string runid FK
+    int    runno
+    int    cannulaid
+    string cannuladescription
+    string site
+    string size
   }
 
-  elso_memblung {
-    string patientid
-    string runid
+  pediatrics_critical_care_ecmo_epic_elso_cannula_purpose {
+    string canpurid PK
+    string runid FK
+    int    runno
+    timestamp starttime
+    timestamp endtime
+    int    purposereason
   }
 
-  elso_equipment {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_carddx {
+    string carddxpk PK
+    string runid FK
+    int    runno
+    int    icd9
+    string description
   }
 
-  elso_pump {
-    string patientid
-    string runid
+  pediatrics_critical_care_ecmo_epic_elso_complications {
+    string complicpk PK
+    string runid FK
+    int    runno
+    int    code
+    string description
+    timestamp time
   }
 
-  elso_diagnoses {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_diagnoses {
+    string diagnosespk PK
+    string runid FK
+    int    runno
+    string icd10code
+    string icd10description
+    string primarydiagnosis
   }
 
-  elso_carddx {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_equipment {
+    string equippk PK
+    string runid FK
+    int    runno
+    string heatexchangername
+    string hemofiltername
+    string temperatureregulationname
   }
 
-  elso_pre_support {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_memblung {
+    string membpk PK
+    string runid FK
+    int    membranelungid
+    string membranelungname
+    string manufacturer
   }
 
-  elso_complications {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_organisms {
+    string orgpk PK
+    string runid FK
+    int    runno
+    int    organismid
+    string organismname
+    timestamp timeon
+    timestamp timeoff
   }
 
-  elso_organisms {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_pre_support {
+    string prsupppk PK
+    string runid FK
+    int    runno
+    int    supportcodeid
+    string description
   }
 
-  elso_procedures {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_procedures {
+    string procedurepk PK
+    string runid FK
+    int    runno
+    int    cptcode
+    string cptdescription
+    timestamp date
   }
 
-  elso_rundetail {
-    string patientid
-    string runid
-    int runno
+  pediatrics_critical_care_ecmo_epic_elso_pump {
+    string pumppk PK
+    string runid FK
+    int    pumpid
+    string bloodpumpname
+    string manufacturer
+  }
+
+  pediatrics_critical_care_ecmo_epic_elso_rundetail {
+    string rundetailid PK
+    string runid FK
+    int    runno
+    int    hoursrundetail
+    timestamp starttime
+    timestamp endtime
+    string description
   }
 
   %% Relationships
-  elso_patient_run ||--|| ecmo_log : "runid"
-  elso_patient_run ||--o{ elso_cannula : "runid"
-  elso_patient_run ||--o{ elso_cannula_purpose : "runid"
-  elso_patient_run ||--o{ elso_memblung : "runid"
-  elso_patient_run ||--o{ elso_equipment : "runid"
-  elso_patient_run ||--o{ elso_pump : "runid"
-  elso_patient_run ||--o{ elso_diagnoses : "runid"
-  elso_patient_run ||--o{ elso_carddx : "runid"
-  elso_patient_run ||--o{ elso_pre_support : "runid"
-  elso_patient_run ||--o{ elso_complications : "runid"
-  elso_patient_run ||--o{ elso_organisms : "runid"
-  elso_patient_run ||--o{ elso_procedures : "runid"
-  elso_patient_run ||--o{ elso_rundetail : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--|| pediatrics_critical_care_ecmo_epic_elso_patient_run : "runid"
+
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_cannula : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_cannula_purpose : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_carddx : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_complications : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_diagnoses : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_equipment : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_memblung : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_organisms : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_pre_support : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_procedures : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_pump : "runid"
+  pediatrics_critical_care_ecmo_epic_ecmo_log ||--o{ pediatrics_critical_care_ecmo_epic_elso_rundetail : "runid"
