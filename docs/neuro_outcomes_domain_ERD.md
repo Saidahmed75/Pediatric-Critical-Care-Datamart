@@ -20,8 +20,7 @@ erDiagram
     string dateoficuadmission
     string dateoficudischarge
     string death
-    %% (many additional columns omitted for readability)
   }
 
-  CCUDM_DEMOGRAPHICS ||--o{ NEURO_OUTCOMES : "PAT_MRN_ID = epicmrn (normalized MRN)"
-  ECMO_LOG          ||--o{ NEURO_OUTCOMES : "pat_mrn_id = epicmrn (normalized MRN)"yid"
+  CCUDM_DEMOGRAPHICS ||--o{ NEURO_OUTCOMES : MRN_link
+  ECMO_LOG          ||--o{ NEURO_OUTCOMES : MRN_link
