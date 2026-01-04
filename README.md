@@ -51,7 +51,7 @@ The datamart schema is documented using modular ERDs to improve clarity and inte
   - ECMO / ELSO domain: `docs/ECMO_ELSO_domain_ERD.md`  
   - Neurologic outcomes domain: `docs/neuro_outcomes_domain_ERD.md`
 
-A consolidated, publication-ready ERD is also provided in PDF format in the `figures/` directory.
+A consolidated ERD is also provided in PDF format in the `figures/` directory.
 
 ---
 
@@ -72,9 +72,9 @@ These figures are intended to support transparency around data completeness, res
 This repository is intended for:
 
 - Investigators developing predictive models using pediatric ICU data
-- Researchers studying ECMO and high-acuity critical care populations
+- Researchers studying ECMO and other high-acuity critical care populations
 - Methodologic work in clinical informatics and data engineering
-- Reviewers and collaborators seeking schema-level transparency
+- Reviewers and collaborators seeking datamart schema-level transparency
 
 The repository **does not contain patient-level data**. All content is limited to schema documentation, summary figures, and analysis code.
 
@@ -84,8 +84,8 @@ The repository **does not contain patient-level data**. All content is limited t
 
 The datamart schema is designed to support:
 
-- Retrospective cohort construction (training datasets)
-- Prospective cohort assembly (validation datasets)
+- Retrospective cohort construction
+- Prospective cohort identification
 - Longitudinal, high-resolution time-series analyses
 - Integration of additional ICU data modalities over time
 
